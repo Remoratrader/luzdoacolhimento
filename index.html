@@ -18,7 +18,6 @@
             color: #333;
         }
 
-        /* ESTILOS GLOBAIS */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -75,18 +74,6 @@
             box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
         }
 
-        .btn-secondary {
-            background: white;
-            color: #4CAF50;
-            border: 2px solid #4CAF50;
-        }
-
-        .btn-secondary:hover {
-            background: #4CAF50;
-            color: white;
-        }
-
-        /* NAVEGAÇÃO */
         .nav-back {
             position: absolute;
             top: 20px;
@@ -100,7 +87,6 @@
             color: #4CAF50;
         }
 
-        /* LANDING PAGE */
         .logo {
             font-size: 3em;
             margin-bottom: 10px;
@@ -159,7 +145,6 @@
             margin-bottom: 20px;
         }
 
-        /* FORMULÁRIOS */
         .form-group {
             margin-bottom: 25px;
         }
@@ -224,136 +209,10 @@
             background: #f8fff8;
         }
 
-        /* PAGAMENTO */
-        .payment-methods {
-            margin: 20px 0;
+        .hidden {
+            display: none !important;
         }
 
-        .payment-method {
-            margin-bottom: 15px;
-        }
-
-        .payment-label {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 20px;
-            border: 2px solid #ddd;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .payment-radio:checked + .payment-label {
-            border-color: #4CAF50;
-            background: #f8fff8;
-        }
-
-        .pix-section {
-            display: none;
-            background: #f8fff8;
-            border: 2px solid #4CAF50;
-            border-radius: 15px;
-            padding: 25px;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .qr-code {
-            width: 200px;
-            height: 200px;
-            background: #fff;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            margin: 20px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* ADMIN DASHBOARD */
-        .dashboard {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            min-height: 100vh;
-            gap: 0;
-        }
-
-        .sidebar {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 20px;
-            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-        }
-
-        .nav-menu {
-            list-style: none;
-        }
-
-        .nav-item {
-            margin-bottom: 10px;
-        }
-
-        .nav-link {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 15px;
-            text-decoration: none;
-            color: #666;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            background: #4CAF50;
-            color: white;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .stat-value {
-            font-size: 2.2em;
-            font-weight: bold;
-            color: #4CAF50;
-        }
-
-        /* RESPONSIVIDADE */
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-options {
-                grid-template-columns: 1fr;
-            }
-            
-            .dashboard {
-                grid-template-columns: 1fr;
-            }
-            
-            .sidebar {
-                display: none;
-            }
-        }
-
-        /* ESTADOS */
         .loading {
             display: inline-block;
             width: 20px;
@@ -369,26 +228,18 @@
             100% { transform: rotate(360deg); }
         }
 
-        .hidden {
-            display: none !important;
-        }
-
-        .success-message {
-            background: #d4edda;
-            color: #155724;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 15px 0;
-            border: 1px solid #c3e6cb;
-        }
-
-        .error-message {
-            background: #f8d7da;
-            color: #721c24;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 15px 0;
-            border: 1px solid #f5c6cb;
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-options {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -453,32 +304,6 @@
                             <div class="btn">Trazer Paz</div>
                         </div>
                     </div>
-
-                    <div style="text-align: center; margin-top: 40px;">
-                        <h3>Por que escolher nossos serviços?</h3>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px;">
-                            <div>
-                                <div style="font-size: 2.5em; margin-bottom: 10px;">⚡</div>
-                                <h4>Entrega Imediata</h4>
-                                <p>Receba em até 3 minutos</p>
-                            </div>
-                            <div>
-                                <div style="font-size: 2.5em; margin-bottom: 10px;">❤️</div>
-                                <h4>Feito com Amor</h4>
-                                <p>Cada bênção é única</p>
-                            </div>
-                            <div>
-                                <div style="font-size: 2.5em; margin-bottom: 10px;">💰</div>
-                                <h4>Preço Justo</h4>
-                                <p>Acessível para todos</p>
-                            </div>
-                            <div>
-                                <div style="font-size: 2.5em; margin-bottom: 10px;">🔒</div>
-                                <h4>Totalmente Privado</h4>
-                                <p>Suas informações são seguras</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -538,10 +363,6 @@
                             <small id="contactHelp"></small>
                         </div>
 
-                        <div style="background: #f0f8ff; border-left: 4px solid #2196F3; padding: 15px; margin: 20px 0; border-radius: 5px;">
-                            🔒 <strong>Privacidade garantida:</strong> Suas informações são usadas apenas para enviar sua bênção personalizada.
-                        </div>
-
                         <button type="submit" class="btn" style="width: 100%;">
                             Continuar para Pagamento
                         </button>
@@ -551,474 +372,123 @@
         </div>
     </div>
 
-    <!-- PÁGINA DE PAGAMENTO -->
-    <div id="pagamento" class="page">
-        <button class="nav-back" onclick="showPage('coleta-dados')">← Voltar</button>
-        
-        <div class="container">
-            <div class="card">
-                <div class="header">
-                    <h1>🙏 Finalizar sua Bênção</h1>
-                    <p>Você está a poucos passos de receber sua bênção personalizada</p>
-                </div>
-
-                <div style="padding: 30px;">
-                    <!-- Resumo do Pedido -->
-                    <div style="background: #f8fff8; border: 2px solid #4CAF50; border-radius: 15px; padding: 25px; margin-bottom: 30px;">
-                        <h3>📋 Resumo do Pedido</h3>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin: 15px 0;">
-                            <div style="display: flex; align-items: center; gap: 10px;">
-                                <span id="order-icon">💔</span>
-                                <span id="order-service">Cura Emocional</span>
-                            </div>
-                            <div style="font-size: 1.5em; font-weight: bold; color: #4CAF50;" id="order-price">R$ 35</div>
-                        </div>
-                        <div style="font-size: 0.9em; color: #666; border-top: 1px solid #eee; padding-top: 10px;">
-                            <strong>Para:</strong> <span id="order-customer">...</span><br>
-                            <strong>Entrega via:</strong> <span id="order-delivery">...</span>
-                        </div>
-                    </div>
-
-                    <!-- Métodos de Pagamento -->
-                    <div class="payment-methods">
-                        <h3>💳 Escolha a forma de pagamento</h3>
-                        
-                        <div class="payment-method">
-                            <input type="radio" id="pix" name="paymentMethod" value="pix" class="payment-radio" checked>
-                            <label for="pix" class="payment-label">
-                                <div style="font-size: 2em;">🏦</div>
-                                <div>
-                                    <h3>PIX <span style="background: #4CAF50; color: white; padding: 3px 8px; border-radius: 10px; font-size: 0.7em;">RECOMENDADO</span></h3>
-                                    <p>Pagamento instantâneo • Receba sua bênção imediatamente</p>
-                                </div>
-                            </label>
-                        </div>
-
-                        <div class="payment-method">
-                            <input type="radio" id="card" name="paymentMethod" value="card" class="payment-radio">
-                            <label for="card" class="payment-label">
-                                <div style="font-size: 2em;">💳</div>
-                                <div>
-                                    <h3>Cartão de Crédito</h3>
-                                    <p>Visa, Mastercard, Elo • Processamento seguro</p>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Seção PIX -->
-                    <div class="pix-section" id="pixSection">
-                        <h3>📱 Pagamento via PIX</h3>
-                        <p>Escaneie o QR Code ou copie e cole o código</p>
-                        
-                        <div class="qr-code">
-                            📱 QR Code PIX<br>
-                            <small>(Seria gerado aqui)</small>
-                        </div>
-                        
-                        <p><strong>Ou copie o código PIX:</strong></p>
-                        <div style="background: #fff; border: 2px solid #ddd; border-radius: 8px; padding: 15px; margin: 15px 0; word-break: break-all; font-family: monospace; font-size: 0.9em;" id="pixCode">
-                            00020126580014BR.GOV.BCB.PIX013635e8f9a8-8a2e-4f4a-9f2a-1234567890ab5204000053039865802BR5925LUZ DO ACOLHIMENTO LTDA6009SAO PAULO62070503***6304ABCD
-                        </div>
-                        
-                        <button class="btn" onclick="copyPixCode()">
-                            📋 Copiar Código PIX
-                        </button>
-                        
-                        <div style="background: #e3f2fd; border-left: 4px solid #2196F3; padding: 15px; margin: 20px 0; border-radius: 5px;">
-                            <strong>⚡ Pagamento Instantâneo:</strong> Assim que confirmarmos seu PIX, sua bênção será processada e enviada automaticamente!
-                        </div>
-                    </div>
-
-                    <button class="btn" style="width: 100%; margin-top: 25px;" onclick="processPayment()">
-                        🙏 Finalizar e Receber Bênção
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- PÁGINA DE CONFIRMAÇÃO -->
+    <!-- PÁGINA DE CONFIRMAÇÃO SIMPLES -->
     <div id="confirmacao" class="page">
         <div class="container">
             <div class="card">
                 <div class="header">
-                    <div style="font-size: 4em; margin-bottom: 15px;">✨</div>
-                    <h1>Bênção Enviada!</h1>
-                    <p>Sua energia de cura já está a caminho</p>
+                    <div style="font-size: 4em; margin-bottom: 15px;">✅</div>
+                    <h1>Dados Recebidos!</h1>
+                    <p>Sua solicitação foi registrada com sucesso</p>
                 </div>
 
-                <div style="padding: 40px;">
-                    <div style="background: #f8fff8; border: 2px solid #4CAF50; border-radius: 15px; padding: 25px; margin-bottom: 30px; text-align: center;">
-                        <h3>📋 Sua Bênção</h3>
-                        <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin: 15px 0;">
-                            <span id="confirm-icon">💔</span>
-                            <div>
-                                <h3 id="confirm-service">Cura Emocional</h3>
-                                <div id="confirm-price">R$ 35</div>
-                            </div>
-                        </div>
-                        <div style="color: #666; border-top: 1px solid #ddd; padding-top: 15px;">
-                            <strong>Para:</strong> <span id="confirm-customer">Maria</span><br>
-                            <strong>Enviado via:</strong> <span id="confirm-delivery">WhatsApp</span><br>
-                            <strong>ID do Pedido:</strong> #<span id="confirm-id">BE2025001</span>
-                        </div>
-                    </div>
-
-                    <div style="background: linear-gradient(45deg, #2196F3, #1976D2); color: white; padding: 20px; border-radius: 15px; margin-bottom: 30px; text-align: center;">
-                        <h3>🚀 Status da Entrega</h3>
-                        <p>Sua bênção personalizada foi processada com sucesso e enviada para seu <strong id="confirm-method">WhatsApp</strong>. Verifique suas mensagens!</p>
-                    </div>
-
-                    <div style="background: #fff8e1; border: 2px solid #FFC107; border-radius: 15px; padding: 25px; margin-bottom: 30px; text-align: center;">
-                        <h3>🙏 Prévia da sua Bênção</h3>
-                        <div style="font-style: italic; line-height: 1.6; color: #555; font-size: 1.1em; margin: 15px 0;">
-                            "Que a paz divina envolva seu coração, <span id="preview-name">Maria</span>, e que toda dor seja transformada em sabedoria. 
-                            Que você encontre força interior para superar este momento e renasça mais forte e radiante..."
-                        </div>
-                        <div style="text-align: right; color: #666; font-size: 0.9em;">
-                            - Com amor, Equipe Luz do Acolhimento
-                        </div>
-                    </div>
-
-                    <div style="display: grid; gap: 15px; margin-bottom: 30px;">
+                <div style="padding: 40px; text-align: center;">
+                    <h3>Obrigado, <span id="confirm-name">...</span>!</h3>
+                    <p>Sua bênção de <strong id="confirm-service">...</strong> foi registrada.</p>
+                    <p>Em breve você receberá por <strong id="confirm-method">...</strong></p>
+                    
+                    <div style="margin: 40px 0;">
                         <button class="btn" onclick="showPage('home')">
                             🙏 Solicitar Outra Bênção
                         </button>
-                        <button class="btn-secondary btn" onclick="shareBlessing()">
-                            💝 Compartilhar com Alguém
-                        </button>
-                    </div>
-
-                    <div style="background: #e8f5e8; border-radius: 15px; padding: 25px; text-align: center;">
-                        <h3>💬 Precisa de Ajuda?</h3>
-                        <p>Nossa equipe está sempre pronta para acolher você.</p>
-                        <div style="display: flex; justify-content: center; gap: 20px; margin-top: 15px; flex-wrap: wrap;">
-                            <div style="display: flex; align-items: center; gap: 8px; color: #4CAF50; font-weight: bold;">
-                                <span>📱</span> WhatsApp: (11) 99999-9999
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 8px; color: #4CAF50; font-weight: bold;">
-                                <span>📧</span> contato@luzdoacolhimento.com
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- PÁGINA ADMIN -->
-    <div id="admin" class="page">
-        <div class="dashboard">
-            <aside class="sidebar">
-                <div style="text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #4CAF50;">
-                    <h2 style="color: #4CAF50;">✨ Admin</h2>
-                    <p>Dashboard</p>
-                </div>
-                
-                <nav>
-                    <ul class="nav-menu">
-                        <li class="nav-item">
-                            <div class="nav-link active" onclick="showAdminTab('overview')">
-                                <span>📊</span> Visão Geral
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="nav-link" onclick="showAdminTab('orders')">
-                                <span>📋</span> Pedidos
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="nav-link" onclick="showAdminTab('analytics')">
-                                <span>📈</span> Relatórios
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="nav-link" onclick="showPage('home')">
-                                <span>🏠</span> Voltar ao Site
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
-            </aside>
-
-            <main style="padding: 20px; overflow-y: auto;">
-                <div class="card">
-                    <div style="padding: 20px; border-bottom: 1px solid #eee;">
-                        <h1 style="color: #4CAF50;">Dashboard Administrativo</h1>
-                        <p>Monitore suas bênçãos e receita em tempo real</p>
-                    </div>
-
-                    <div style="padding: 20px;">
-                        <!-- Visão Geral -->
-                        <div id="admin-overview" class="admin-tab active">
-                            <div class="stats-grid">
-                                <div class="stat-card">
-                                    <div style="font-size: 2.5em; margin-bottom: 15px;">💰</div>
-                                    <div class="stat-value">R$ 2.847</div>
-                                    <div>Receita Total</div>
-                                    <div style="color: #4CAF50; font-size: 0.8em; margin-top: 8px;">+15.3% hoje</div>
-                                </div>
-                                
-                                <div class="stat-card">
-                                    <div style="font-size: 2.5em; margin-bottom: 15px;">🙏</div>
-                                    <div class="stat-value">147</div>
-                                    <div>Bênçãos Enviadas</div>
-                                    <div style="color: #4CAF50; font-size: 0.8em; margin-top: 8px;">+23 hoje</div>
-                                </div>
-                                
-                                <div class="stat-card">
-                                    <div style="font-size: 2.5em; margin-bottom: 15px;">👥</div>
-                                    <div class="stat-value">89</div>
-                                    <div>Clientes Únicos</div>
-                                    <div style="color: #4CAF50; font-size: 0.8em; margin-top: 8px;">+8 hoje</div>
-                                </div>
-                                
-                                <div class="stat-card">
-                                    <div style="font-size: 2.5em; margin-bottom: 15px;">⭐</div>
-                                    <div class="stat-value">4.9</div>
-                                    <div>Satisfação Média</div>
-                                    <div style="color: #4CAF50; font-size: 0.8em; margin-top: 8px;">Excelente!</div>
-                                </div>
-                            </div>
-
-                            <div style="background: white; padding: 25px; border-radius: 15px; margin: 20px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                                <h3 style="color: #4CAF50; margin-bottom: 20px;">📊 Serviços Mais Solicitados</h3>
-                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-                                    <div style="background: #f8fff8; padding: 15px; border-radius: 10px; border-left: 4px solid #4CAF50;">
-                                        <div style="font-size: 1.5em; margin-bottom: 8px;">💔</div>
-                                        <h4>Cura Emocional</h4>
-                                        <div style="display: flex; justify-content: space-between; margin-top: 10px;">
-                                            <span><strong>52</strong> pedidos</span>
-                                            <span><strong>R$ 1.820</strong></span>
-                                        </div>
-                                    </div>
-                                    
-                                    <div style="background: #f8fff8; padding: 15px; border-radius: 10px; border-left: 4px solid #4CAF50;">
-                                        <div style="font-size: 1.5em; margin-bottom: 8px;">🔓</div>
-                                        <h4>Liberação Espiritual</h4>
-                                        <div style="display: flex; justify-content: space-between; margin-top: 10px;">
-                                            <span><strong>31</strong> pedidos</span>
-                                            <span><strong>R$ 1.395</strong></span>
-                                        </div>
-                                    </div>
-                                    
-                                    <div style="background: #f8fff8; padding: 15px; border-radius: 10px; border-left: 4px solid #4CAF50;">
-                                        <div style="font-size: 1.5em; margin-bottom: 8px;">💕</div>
-                                        <h4>Harmonia Amorosa</h4>
-                                        <div style="display: flex; justify-content: space-between; margin-top: 10px;">
-                                            <span><strong>28</strong> pedidos</span>
-                                            <span><strong>R$ 840</strong></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Pedidos -->
-                        <div id="admin-orders" class="admin-tab hidden">
-                            <h3 style="color: #4CAF50; margin-bottom: 20px;">📋 Últimos Pedidos</h3>
-                            
-                            <table style="width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden;">
-                                <thead>
-                                    <tr style="background: #f5f5f5;">
-                                        <th style="padding: 12px; text-align: left;">ID</th>
-                                        <th style="padding: 12px; text-align: left;">Cliente</th>
-                                        <th style="padding: 12px; text-align: left;">Serviço</th>
-                                        <th style="padding: 12px; text-align: left;">Valor</th>
-                                        <th style="padding: 12px; text-align: left;">Status</th>
-                                        <th style="padding: 12px; text-align: left;">Data</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="border-bottom: 1px solid #eee;">
-                                        <td style="padding: 12px;">BE001</td>
-                                        <td style="padding: 12px;">Maria Silva</td>
-                                        <td style="padding: 12px;">Cura Emocional</td>
-                                        <td style="padding: 12px;">R$ 35</td>
-                                        <td style="padding: 12px;"><span style="background: #e8f5e8; color: #2e7d32; padding: 4px 12px; border-radius: 20px; font-size: 0.8em;">Concluído</span></td>
-                                        <td style="padding: 12px;">05/01/2025 14:30</td>
-                                    </tr>
-                                    <tr style="border-bottom: 1px solid #eee;">
-                                        <td style="padding: 12px;">BE002</td>
-                                        <td style="padding: 12px;">João Santos</td>
-                                        <td style="padding: 12px;">Abertura de Caminhos</td>
-                                        <td style="padding: 12px;">R$ 25</td>
-                                        <td style="padding: 12px;"><span style="background: #e3f2fd; color: #1976d2; padding: 4px 12px; border-radius: 20px; font-size: 0.8em;">Processando</span></td>
-                                        <td style="padding: 12px;">05/01/2025 15:15</td>
-                                    </tr>
-                                    <tr style="border-bottom: 1px solid #eee;">
-                                        <td style="padding: 12px;">BE003</td>
-                                        <td style="padding: 12px;">Ana Costa</td>
-                                        <td style="padding: 12px;">Liberação Espiritual</td>
-                                        <td style="padding: 12px;">R$ 45</td>
-                                        <td style="padding: 12px;"><span style="background: #fff3e0; color: #f57c00; padding: 4px 12px; border-radius: 20px; font-size: 0.8em;">Pendente</span></td>
-                                        <td style="padding: 12px;">05/01/2025 16:00</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <!-- Relatórios -->
-                        <div id="admin-analytics" class="admin-tab hidden">
-                            <h3 style="color: #4CAF50; margin-bottom: 20px;">📈 Análise de Performance</h3>
-                            
-                            <div style="background: #f9f9f9; border-radius: 10px; height: 300px; display: flex; align-items: center; justify-content: center; color: #666; margin-bottom: 20px;">
-                                📊 Gráfico de receita (integração com Chart.js)
-                            </div>
-                            
-                            <div class="stats-grid">
-                                <div class="stat-card">
-                                    <div style="font-size: 2.5em; margin-bottom: 15px;">📱</div>
-                                    <div class="stat-value">73%</div>
-                                    <div>Entrega WhatsApp</div>
-                                </div>
-                                <div class="stat-card">
-                                    <div style="font-size: 2.5em; margin-bottom: 15px;">📧</div>
-                                    <div class="stat-value">27%</div>
-                                    <div>Entrega Email</div>
-                                </div>
-                                <div class="stat-card">
-                                    <div style="font-size: 2.5em; margin-bottom: 15px;">⚡</div>
-                                    <div class="stat-value">1.8min</div>
-                                    <div>Tempo Médio Entrega</div>
-                                </div>
-                                <div class="stat-card">
-                                    <div style="font-size: 2.5em; margin-bottom: 15px;">🔄</div>
-                                    <div class="stat-value">34%</div>
-                                    <div>Taxa de Retorno</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
-        </div>
-    </div>
-
     <script>
-        // ESTADO GLOBAL DA APLICAÇÃO 
-console.log("🔧 Verificando configuração Airtable...");
+        console.log("🚀 Iniciando Luz do Acolhimento...");
 
-        
-// ===== CONFIGURAÇÃO AIRTABLE =====
-const AIRTABLE_CONFIG = {
-  baseId: 'appxXH6r0C4DsU3iV',          // ← Vamos pegar isso depois
-  apiKey: 'pat8VY7vEKyN1cW9O.d1115f642ade120ead339286c3354a961634559f448a95ceadb2bbd5a4056cd9',         // ← SEU TOKEN AQUI
-  tableName: 'Orders'
-};
+        // ===== CONFIGURAÇÃO AIRTABLE =====
+        const AIRTABLE_CONFIG = {
+            baseId: 'appxXH6r0C4DsU3iV',     // ← SUBSTITUA pelo seu Base ID
+            apiKey: 'patBVY7vEKyN1cW9O',   // ← SUBSTITUA pelo seu token
+            tableName: 'Orders'
+        };
 
-// VERIFICAÇÃO AUTOMÁTICA
-if (AIRTABLE_CONFIG.baseId.includes('XXX') || AIRTABLE_CONFIG.apiKey.includes('XXX')) {
-  console.error("❌ ERRO: Credenciais não configuradas!");
-  console.log("📋 Base ID deve começar com 'app...'");
-  console.log("📋 API Key deve começar com 'pat...'");
-} else {
-  console.log("✅ Credenciais configuradas");
-}        
-
-// ===== CLASSE AIRTABLE =====
-class AirtableManager {
-  constructor() {
-    this.baseUrl = `https://api.airtable.com/v0/${AIRTABLE_CONFIG.baseId}`;
-    this.headers = {
-      'Authorization': `Bearer ${AIRTABLE_CONFIG.apiKey}`,
-      'Content-Type': 'application/json'
-    };
-
-console.log("🔗 URL Airtable:", this.baseUrl);
-  }
- // TESTE DE CONEXÃO
-  async testConnection() {
-    try {
-      console.log("🧪 Testando conexão com Airtable...");
-      
-      const response = await fetch(`${this.baseUrl}/${AIRTABLE_CONFIG.tableName}?maxRecords=1`, {
-        method: 'GET',
-        headers: this.headers
-      });
-
-      if (response.ok) {
-        console.log("✅ Conexão com Airtable OK!");
-        const data = await response.json();
-        console.log("📊 Estrutura da tabela:", data);
-        return true;
-      } else {
-        console.error("❌ Erro de conexão:", response.status, response.statusText);
-        return false;
-      }
-    } catch (error) {
-      console.error("❌ Erro de rede:", error);
-      return false;
-    }
-  }
-
-  // SALVAR PEDIDO COM DEBUG COMPLETO
-  async saveOrder(orderData) {
-    try {
-      console.log("📝 Tentando salvar pedido:", orderData);
-      
-      const payload = {
-        fields: {
-          'ID_Pedido': `BE${Date.now().toString().slice(-6)}`,
-          'Nome_Cliente': orderData.userName,
-          'Servico': orderData.serviceName,
-          'Preco': orderData.price,
-          'Contato': orderData.contactInfo,
-          'Metodo_Contato': orderData.contactMethod,
-          'Situacao_Relatada': orderData.situation || 'Não informado',
-          'Status': 'Pendente',
-          'Data_Pedido': new Date().toISOString().split('T')[0],
-          'Hora_Pedido': new Date().toLocaleTimeString('pt-BR')
+        // Verificar configuração
+        if (AIRTABLE_CONFIG.baseId.includes('SEU_BASE_ID')) {
+            console.warn("⚠️ CONFIGURE o Base ID do Airtable!");
         }
-      };
-      
-      console.log("📦 Payload enviado:", payload);
 
-      const response = await fetch(`${this.baseUrl}/${AIRTABLE_CONFIG.tableName}`, {
-        method: 'POST',
-        headers: this.headers,
-        body: JSON.stringify(payload)
-      });
+        // ===== CLASSE AIRTABLE =====
+        class AirtableManager {
+            constructor() {
+                this.baseUrl = `https://api.airtable.com/v0/${AIRTABLE_CONFIG.baseId}`;
+                this.headers = {
+                    'Authorization': `Bearer ${AIRTABLE_CONFIG.apiKey}`,
+                    'Content-Type': 'application/json'
+                };
+                console.log("🔗 Airtable configurado:", this.baseUrl);
+            }
 
-      console.log("📡 Status da resposta:", response.status);
+            async saveOrder(orderData) {
+                try {
+                    console.log("📝 Salvando no Airtable:", orderData);
+                    
+                    const payload = {
+                        fields: {
+                            'ID_Pedido': `BE${Date.now().toString().slice(-6)}`,
+                            'Nome_Cliente': orderData.userName,
+                            'Servico': orderData.serviceName,
+                            'Preco': orderData.price,
+                            'Contato': orderData.contactInfo,
+                            'Metodo_Contato': orderData.contactMethod,
+                            'Situacao_Relatada': orderData.situation || 'Não informado',
+                            'Status': 'Pendente',
+                            'Data_Pedido': new Date().toISOString().split('T')[0],
+                            'Hora_Pedido': new Date().toLocaleTimeString('pt-BR')
+                        }
+                    };
 
-      if (!response.ok) {
-        const errorText = await response.text();
-        console.error("❌ Erro detalhado:", errorText);
-        throw new Error(`Erro ${response.status}: ${errorText}`);
-      }
+                    const response = await fetch(`${this.baseUrl}/${AIRTABLE_CONFIG.tableName}`, {
+                        method: 'POST',
+                        headers: this.headers,
+                        body: JSON.stringify(payload)
+                    });
 
-      const data = await response.json();
-      console.log("✅ Sucesso! Dados salvos:", data);
-      
-      // MOSTRAR MENSAGEM VISUAL
-      showMessage("✅ Dados salvos no Airtable!", "success");
-      
-      return {
-        success: true,
-        airtableId: data.id,
-        orderId: data.fields.ID_Pedido
-      };
+                    if (response.ok) {
+                        const data = await response.json();
+                        console.log("✅ Salvo no Airtable:", data.id);
+                        this.showMessage("✅ Dados salvos com sucesso!", "success");
+                        return { success: true, id: data.id };
+                    } else {
+                        const error = await response.text();
+                        console.error("❌ Erro Airtable:", response.status, error);
+                        this.showMessage("⚠️ Erro ao salvar dados", "warning");
+                        return { success: false, error: error };
+                    }
 
-    } catch (error) {
-      console.error("❌ Erro completo:", error);
-      
-      // MOSTRAR ERRO VISUAL
-      showMessage("❌ Erro ao salvar: " + error.message, "error");
-      
-      return {
-        success: false,
-        error: error.message
-      };
-    }
-  }
-}
+                } catch (error) {
+                    console.error("❌ Erro de conexão:", error);
+                    this.showMessage("⚠️ Erro de conexão", "warning");
+                    return { success: false, error: error.message };
+                }
+            }
 
-// ===== INICIALIZAR AIRTABLE =====
-const airtable = new AirtableManager();
+            showMessage(message, type) {
+                const colors = {
+                    success: '#d4edda',
+                    warning: '#fff3cd',
+                    error: '#f8d7da'
+                };
+                
+                const div = document.createElement('div');
+                div.textContent = message;
+                div.style.cssText = `
+                    position: fixed; top: 20px; right: 20px; z-index: 1000;
+                    padding: 15px 20px; border-radius: 8px; font-weight: bold;
+                    background: ${colors[type] || colors.success};
+                    max-width: 300px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                `;
+                
+                document.body.appendChild(div);
+                setTimeout(() => div.remove(), 4000);
+            }
+        }
 
-        
+        // ===== ESTADO GLOBAL =====
         let currentOrder = {
             service: '',
             serviceName: '',
@@ -1030,22 +500,27 @@ const airtable = new AirtableManager();
             contactInfo: ''
         };
 
-        // NAVEGAÇÃO ENTRE PÁGINAS
+        // Inicializar Airtable
+        const airtable = new AirtableManager();
+
+        // ===== FUNÇÕES DE NAVEGAÇÃO =====
         function showPage(pageId) {
+            console.log("📄 Navegando para:", pageId);
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
             document.getElementById(pageId).classList.add('active');
         }
 
-        // SELEÇÃO DE SERVIÇO
         function selectService(service, serviceName, icon, price) {
+            console.log("🎯 Serviço selecionado:", serviceName);
+            
             currentOrder.service = service;
             currentOrder.serviceName = serviceName;
             currentOrder.icon = icon;
             currentOrder.price = price;
 
-            // Atualizar informações na página de coleta
+            // Atualizar página de coleta
             document.getElementById('selected-icon').textContent = icon;
             document.getElementById('selected-service').textContent = serviceName;
             document.getElementById('selected-price').textContent = `R$ ${price}`;
@@ -1053,8 +528,10 @@ const airtable = new AirtableManager();
             showPage('coleta-dados');
         }
 
-        // FORMULÁRIO DE DADOS
+        // ===== FORMULÁRIO =====
         document.addEventListener('DOMContentLoaded', function() {
+            console.log("✅ DOM carregado");
+
             // Mostrar campo de contato quando método é selecionado
             document.querySelectorAll('input[name="contactMethod"]').forEach(radio => {
                 radio.addEventListener('change', function() {
@@ -1079,304 +556,52 @@ const airtable = new AirtableManager();
                 });
             });
 
-            // =====================================================
-// SUBSTITUIR O FORMULÁRIO EXISTENTE POR ESTE:
-// =====================================================
-
-// REMOVA o addEventListener existente do dataForm e use este:
-document.getElementById('dataForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    console.log("📝 Formulário submetido!");
-    
-    const submitBtn = this.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.innerHTML = '<div class="loading"></div> Salvando...';
-    submitBtn.disabled = true;
-    
-    // Coletar dados
-    const formData = {
-        service: currentOrder.service,
-        serviceName: currentOrder.serviceName,
-        price: currentOrder.price,
-        userName: document.getElementById('userName').value.trim(),
-        situation: document.getElementById('situation').value.trim(),
-        contactMethod: document.querySelector('input[name="contactMethod"]:checked').value,
-        contactInfo: document.getElementById('contactInfo').value.trim()
-    };
-    
-    console.log("📋 Dados coletados:", formData);
-    
-    try {
-        // SALVAR NO AIRTABLE
-        const result = await airtable.saveOrder(formData);
-        
-        if (result.success) {
-            console.log("🎯 Sucesso completo!");
-            currentOrder.airtableId = result.airtableId;
-            currentOrder.orderId = result.orderId;
-        } else {
-            console.log("⚠️ Falha ao salvar, mas continuando...");
-        }
-        
-        // CONTINUAR PARA PRÓXIMA PÁGINA
-        Object.assign(currentOrder, formData);
-        updatePaymentPage();
-        showPage('pagamento');
-        
-    } catch (error) {
-        console.error("💥 Erro geral:", error);
-        showMessage('❌ Erro inesperado: ' + error.message, 'error');
-    } finally {
-        // RESTAURAR BOTÃO
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    }
-});
-
-// =====================================================
-// FUNÇÃO PARA MOSTRAR MENSAGENS (SE NÃO EXISTIR)
-// =====================================================
-
-function showMessage(message, type) {
-    console.log(`${type === 'success' ? '✅' : '❌'} ${message}`);
-    
-    // Criar elemento visual
-    const messageDiv = document.createElement('div');
-    messageDiv.textContent = message;
-    messageDiv.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        padding: 15px 20px;
-        border-radius: 8px;
-        z-index: 1000;
-        font-weight: bold;
-        max-width: 300px;
-        ${type === 'success' ? 
-          'background: #d4edda; color: #155724; border: 1px solid #c3e6cb;' : 
-          'background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;'
-        }
-    `;
-    
-    document.body.appendChild(messageDiv);
-    
-    // Remover após 5 segundos
-    setTimeout(() => {
-        if (messageDiv.parentNode) {
-            messageDiv.parentNode.removeChild(messageDiv);
-        }
-    }, 5000);
-}
-
-// =====================================================
-// GUIA DE CREDENCIAIS - COMO OBTER
-// =====================================================
-
-/*
-🔑 COMO OBTER SUAS CREDENCIAIS:
-
-1. BASE ID:
-   - Vá para airtable.com
-   - Entre na sua base
-   - Clique no ícone "Help" (?)
-   - Clique "API documentation"
-   - Procure: "The ID of this base is app..."
-   - Copie o ID (ex: app1234567890abcdef)
-
-2. API KEY:
-   - Já foi criado: patBVY7vEKyN1cW9O
-   - Use exatamente como está
-
-3. NOME DA TABELA:
-   - Deve ser exatamente "Orders"
-   - Verifique se a tabela tem esse nome no Airtable
-
-📋 ESTRUTURA DA TABELA NO AIRTABLE:
-- ID_Pedido (Single line text)
-- Nome_Cliente (Single line text)
-- Servico (Single select)
-- Preco (Number)
-- Contato (Single line text)
-- Metodo_Contato (Single select)
-- Situacao_Relatada (Long text)
-- Status (Single select)
-- Data_Pedido (Date)
-- Hora_Pedido (Single line text)
-
-🧪 TESTE:
-1. Abra F12 > Console no seu site
-2. Faça um cadastro
-3. Veja as mensagens que aparecem
-4. Verifique se dados apareceram no Airtable
-*/
-
-console.log("🔧 Código de debug carregado! Use F12 > Console para ver os logs.");
-
-
-                // Atualizar página de pagamento
-                updatePaymentPage();
-                showPage('pagamento');
-            });
-
-            // Métodos de pagamento
-            document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
-                radio.addEventListener('change', function() {
-                    const pixSection = document.getElementById('pixSection');
-                    if (this.value === 'pix') {
-                        pixSection.style.display = 'block';
-                    } else {
-                        pixSection.style.display = 'none';
-                    }
-                });
-            });
-
-            // Inicializar PIX como padrão
-            document.getElementById('pixSection').style.display = 'block';
-        });
-
-        // ATUALIZAR PÁGINA DE PAGAMENTO
-        function updatePaymentPage() {
-            document.getElementById('order-icon').textContent = currentOrder.icon;
-            document.getElementById('order-service').textContent = currentOrder.serviceName;
-            document.getElementById('order-price').textContent = `R$ ${currentOrder.price}`;
-            document.getElementById('order-customer').textContent = currentOrder.userName;
-            document.getElementById('order-delivery').textContent = currentOrder.contactMethod === 'whatsapp' ? 'WhatsApp' : 'Email';
-        }
-
-        // COPIAR CÓDIGO PIX
-        function copyPixCode() {
-            const pixCode = document.getElementById('pixCode').textContent;
-            navigator.clipboard.writeText(pixCode).then(() => {
-                showMessage('✅ Código PIX copiado!', 'success');
-            });
-        }
-
-        // PROCESSAR PAGAMENTO
-        function processPayment() {
-            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
-            
-            showMessage('💳 Processando pagamento...', 'info');
-            
-            // Simular processamento
-            setTimeout(() => {
-                // Atualizar página de confirmação
-                updateConfirmationPage();
-                showPage('confirmacao');
+            // Submissão do formulário
+            document.getElementById('dataForm').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                console.log("📝 Formulário enviado");
                 
-                // Simular envio da bênção
-                setTimeout(() => {
-                    showMessage('✅ Bênção enviada com sucesso!', 'success');
-                }, 2000);
-            }, 2000);
-        }
-
-        // ATUALIZAR PÁGINA DE CONFIRMAÇÃO
-        function updateConfirmationPage() {
-            document.getElementById('confirm-icon').textContent = currentOrder.icon;
-            document.getElementById('confirm-service').textContent = currentOrder.serviceName;
-            document.getElementById('confirm-price').textContent = `R$ ${currentOrder.price}`;
-            document.getElementById('confirm-customer').textContent = currentOrder.userName;
-            document.getElementById('confirm-delivery').textContent = currentOrder.contactMethod === 'whatsapp' ? 'WhatsApp' : 'Email';
-            document.getElementById('confirm-method').textContent = currentOrder.contactMethod === 'whatsapp' ? 'WhatsApp' : 'Email';
-            document.getElementById('confirm-id').textContent = `BE${Date.now().toString().slice(-6)}`;
-            document.getElementById('preview-name').textContent = currentOrder.userName;
-        }
-
-        // COMPARTILHAR BÊNÇÃO
-        function shareBlessing() {
-            const text = `🙏 Acabei de receber uma bênção muito especial da Luz do Acolhimento! ✨\n\nEles oferecem acolhimento espiritual personalizado com muito amor e carinho.\n\nRecomendo para quem precisa de paz interior! 💝`;
-            
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Luz do Acolhimento',
-                    text: text
-                });
-            } else {
-                const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(text)}`;
-                window.open(whatsappUrl, '_blank');
-            }
-        }
-
-        // ADMIN DASHBOARD
-        function showAdminTab(tabId) {
-            // Remover active dos links
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-            });
-            
-            // Adicionar active ao clicado
-            event.target.classList.add('active');
-            
-            // Mostrar conteúdo correto
-            document.querySelectorAll('.admin-tab').forEach(tab => {
-                tab.classList.add('hidden');
-            });
-            
-            document.getElementById(`admin-${tabId}`).classList.remove('hidden');
-        }
-
-        // ACESSO ADMIN (ATALHO)
-        document.addEventListener('keydown', function(e) {
-            if (e.ctrlKey && e.shiftKey && e.key === 'A') {
-                showPage('admin');
-            }
-        });
-
-      /*  // SISTEMA DE MENSAGENS
-        function showMessage(message, type) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `${type}-message`;
-            messageDiv.textContent = message;
-            messageDiv.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                padding: 15px 20px;
-                border-radius: 10px;
-                z-index: 1000;
-                font-weight: bold;
-                animation: slideIn 0.5s ease-out;
-            `;
-            
-            if (type === 'success') {
-                messageDiv.style.background = '#d4edda';
-                messageDiv.style.color = '#155724';
-                messageDiv.style.border = '1px solid #c3e6cb';
-            } else if (type === 'info') {
-                messageDiv.style.background = '#d1ecf1';
-                messageDiv.style.color = '#0c5460';
-                messageDiv.style.border = '1px solid #bee5eb';
-            }
-            
-            document.body.appendChild(messageDiv);
-            
-            setTimeout(() => {
-                messageDiv.remove();
-            }, 4000);
-        }
-*/
-        // SIMULAÇÃO DE DADOS EM TEMPO REAL
-        function simulateRealTimeUpdates() {
-            setInterval(() => {
-                // Atualizar estatísticas ocasionalmente
-                if (Math.random() > 0.95) {
-                    const revenueElement = document.querySelector('.stat-value');
-                    if (revenueElement && revenueElement.textContent.includes('R$')) {
-                        const currentValue = parseFloat(revenueElement.textContent.replace('R$ ', '').replace('.', ''));
-                        const newValue = currentValue + [20, 25, 30, 35, 45][Math.floor(Math.random() * 5)];
-                        revenueElement.textContent = `R$ ${newValue.toLocaleString('pt-BR')}`;
-                    }
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                submitBtn.innerHTML = '<div class="loading"></div> Salvando...';
+                submitBtn.disabled = true;
+                
+                // Coletar dados
+                const formData = {
+                    service: currentOrder.service,
+                    serviceName: currentOrder.serviceName,
+                    price: currentOrder.price,
+                    userName: document.getElementById('userName').value.trim(),
+                    situation: document.getElementById('situation').value.trim(),
+                    contactMethod: document.querySelector('input[name="contactMethod"]:checked').value,
+                    contactInfo: document.getElementById('contactInfo').value.trim()
+                };
+                
+                console.log("📋 Dados coletados:", formData);
+                
+                try {
+                    // Salvar no Airtable
+                    const result = await airtable.saveOrder(formData);
+                    
+                    // Atualizar página de confirmação
+                    document.getElementById('confirm-name').textContent = formData.userName;
+                    document.getElementById('confirm-service').textContent = formData.serviceName;
+                    document.getElementById('confirm-method').textContent = formData.contactMethod === 'whatsapp' ? 'WhatsApp' : 'Email';
+                    
+                    // Ir para confirmação
+                    showPage('confirmacao');
+                    
+                } catch (error) {
+                    console.error("💥 Erro geral:", error);
+                } finally {
+                    // Restaurar botão
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
                 }
-            }, 30000); // A cada 30 segundos
-        }
-
-        // INICIALIZAR APLICAÇÃO
-        document.addEventListener('DOMContentLoaded', function() {
-            simulateRealTimeUpdates();
-            console.log('🙏✨ Luz do Acolhimento inicializado!');
-            console.log('💡 Pressione Ctrl+Shift+A para acessar o admin');
+            });
         });
+
+        console.log("🎉 Luz do Acolhimento carregado com sucesso!");
     </script>
 </body>
 </html>
