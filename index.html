@@ -897,7 +897,72 @@
     </div>
 
     <script>
-        // ESTADO GLOBAL DA APLICAÇÃO
+        // ESTADO GLOBAL DA APLICAÇÃO 
+// ===== CONFIGURAÇÃO AIRTABLE =====
+const AIRTABLE_CONFIG = {
+  baseId: 'appxXH6r0C4DsU3iV',          // ← Vamos pegar isso depois
+  apiKey: 'pat8VY7vEKyN1cW9O.d1115f642ade120ead339286c3354a961634559f448a95ceadb2bbd5a4056cd9',         // ← SEU TOKEN AQUI
+  tableName: 'Orders'
+};
+
+// ===== CLASSE AIRTABLE =====
+class AirtableManager {
+  constructor() {
+    this.baseUrl = `https://api.airtable.com/v0/${AIRTABLE_CONFIG.baseId}`;
+    this.headers = {
+      'Authorization': `Bearer ${AIRTABLE_CONFIG.apiKey}`,
+      'Content-Type': 'application/json'
+    };
+  }
+
+  async saveOrder(orderData) {
+    try {
+      const response = await fetch(`${this.baseUrl}/${AIRTABLE_CONFIG.tableName}`, {
+        method: 'POST',
+        headers: this.headers,
+        body: JSON.stringify({
+          fields: {
+            'ID_Pedido': `BE${Date.now().toString().slice(-6)}`,
+            'Nome_Cliente': orderData.userName,
+            'Servico': orderData.serviceName,
+            'Preco': orderData.price,
+            'Contato': orderData.contactInfo,
+            'Metodo_Contato': orderData.contactMethod,
+            'Situacao_Relatada': orderData.situation || 'Não informado',
+            'Status': 'Pendente',
+            'Data_Pedido': new Date().toISOString().split('T')[0],
+            'Hora_Pedido': new Date().toLocaleTimeString('pt-BR')
+          }
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`Erro Airtable: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log('✅ Pedido salvo no Airtable:', data.id);
+      
+      return {
+        success: true,
+        airtableId: data.id,
+        orderId: data.fields.ID_Pedido
+      };
+
+    } catch (error) {
+      console.error('❌ Erro ao salvar no Airtable:', error);
+      return {
+        success: false,
+        error: error.message
+      };
+    }
+  }
+}
+
+// ===== INICIALIZAR AIRTABLE =====
+const airtable = new AirtableManager();
+
+        
         let currentOrder = {
             service: '',
             serviceName: '',
