@@ -898,12 +898,24 @@
 
     <script>
         // ESTADO GLOBAL DA APLICAÇÃO 
+console.log("🔧 Verificando configuração Airtable...");
+
+        
 // ===== CONFIGURAÇÃO AIRTABLE =====
 const AIRTABLE_CONFIG = {
   baseId: 'appxXH6r0C4DsU3iV',          // ← Vamos pegar isso depois
   apiKey: 'pat8VY7vEKyN1cW9O.d1115f642ade120ead339286c3354a961634559f448a95ceadb2bbd5a4056cd9',         // ← SEU TOKEN AQUI
   tableName: 'Orders'
 };
+
+// VERIFICAÇÃO AUTOMÁTICA
+if (AIRTABLE_CONFIG.baseId.includes('XXX') || AIRTABLE_CONFIG.apiKey.includes('XXX')) {
+  console.error("❌ ERRO: Credenciais não configuradas!");
+  console.log("📋 Base ID deve começar com 'app...'");
+  console.log("📋 API Key deve começar com 'pat...'");
+} else {
+  console.log("✅ Credenciais configuradas");
+}        
 
 // ===== CLASSE AIRTABLE =====
 class AirtableManager {
@@ -913,35 +925,75 @@ class AirtableManager {
       'Authorization': `Bearer ${AIRTABLE_CONFIG.apiKey}`,
       'Content-Type': 'application/json'
     };
+
+console.log("🔗 URL Airtable:", this.baseUrl);
+  }
+ // TESTE DE CONEXÃO
+  async testConnection() {
+    try {
+      console.log("🧪 Testando conexão com Airtable...");
+      
+      const response = await fetch(`${this.baseUrl}/${AIRTABLE_CONFIG.tableName}?maxRecords=1`, {
+        method: 'GET',
+        headers: this.headers
+      });
+
+      if (response.ok) {
+        console.log("✅ Conexão com Airtable OK!");
+        const data = await response.json();
+        console.log("📊 Estrutura da tabela:", data);
+        return true;
+      } else {
+        console.error("❌ Erro de conexão:", response.status, response.statusText);
+        return false;
+      }
+    } catch (error) {
+      console.error("❌ Erro de rede:", error);
+      return false;
+    }
   }
 
+  // SALVAR PEDIDO COM DEBUG COMPLETO
   async saveOrder(orderData) {
     try {
+      console.log("📝 Tentando salvar pedido:", orderData);
+      
+      const payload = {
+        fields: {
+          'ID_Pedido': `BE${Date.now().toString().slice(-6)}`,
+          'Nome_Cliente': orderData.userName,
+          'Servico': orderData.serviceName,
+          'Preco': orderData.price,
+          'Contato': orderData.contactInfo,
+          'Metodo_Contato': orderData.contactMethod,
+          'Situacao_Relatada': orderData.situation || 'Não informado',
+          'Status': 'Pendente',
+          'Data_Pedido': new Date().toISOString().split('T')[0],
+          'Hora_Pedido': new Date().toLocaleTimeString('pt-BR')
+        }
+      };
+      
+      console.log("📦 Payload enviado:", payload);
+
       const response = await fetch(`${this.baseUrl}/${AIRTABLE_CONFIG.tableName}`, {
         method: 'POST',
         headers: this.headers,
-        body: JSON.stringify({
-          fields: {
-            'ID_Pedido': `BE${Date.now().toString().slice(-6)}`,
-            'Nome_Cliente': orderData.userName,
-            'Servico': orderData.serviceName,
-            'Preco': orderData.price,
-            'Contato': orderData.contactInfo,
-            'Metodo_Contato': orderData.contactMethod,
-            'Situacao_Relatada': orderData.situation || 'Não informado',
-            'Status': 'Pendente',
-            'Data_Pedido': new Date().toISOString().split('T')[0],
-            'Hora_Pedido': new Date().toLocaleTimeString('pt-BR')
-          }
-        })
+        body: JSON.stringify(payload)
       });
 
+      console.log("📡 Status da resposta:", response.status);
+
       if (!response.ok) {
-        throw new Error(`Erro Airtable: ${response.status}`);
+        const errorText = await response.text();
+        console.error("❌ Erro detalhado:", errorText);
+        throw new Error(`Erro ${response.status}: ${errorText}`);
       }
 
       const data = await response.json();
-      console.log('✅ Pedido salvo no Airtable:', data.id);
+      console.log("✅ Sucesso! Dados salvos:", data);
+      
+      // MOSTRAR MENSAGEM VISUAL
+      showMessage("✅ Dados salvos no Airtable!", "success");
       
       return {
         success: true,
@@ -950,7 +1002,11 @@ class AirtableManager {
       };
 
     } catch (error) {
-      console.error('❌ Erro ao salvar no Airtable:', error);
+      console.error("❌ Erro completo:", error);
+      
+      // MOSTRAR ERRO VISUAL
+      showMessage("❌ Erro ao salvar: " + error.message, "error");
+      
       return {
         success: false,
         error: error.message
@@ -1023,14 +1079,140 @@ const airtable = new AirtableManager();
                 });
             });
 
-            // Submissão do formulário de dados
-            document.getElementById('dataForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                currentOrder.userName = document.getElementById('userName').value.trim();
-                currentOrder.situation = document.getElementById('situation').value.trim();
-                currentOrder.contactMethod = document.querySelector('input[name="contactMethod"]:checked').value;
-                currentOrder.contactInfo = document.getElementById('contactInfo').value.trim();
+            // =====================================================
+// SUBSTITUIR O FORMULÁRIO EXISTENTE POR ESTE:
+// =====================================================
+
+// REMOVA o addEventListener existente do dataForm e use este:
+document.getElementById('dataForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    console.log("📝 Formulário submetido!");
+    
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.innerHTML = '<div class="loading"></div> Salvando...';
+    submitBtn.disabled = true;
+    
+    // Coletar dados
+    const formData = {
+        service: currentOrder.service,
+        serviceName: currentOrder.serviceName,
+        price: currentOrder.price,
+        userName: document.getElementById('userName').value.trim(),
+        situation: document.getElementById('situation').value.trim(),
+        contactMethod: document.querySelector('input[name="contactMethod"]:checked').value,
+        contactInfo: document.getElementById('contactInfo').value.trim()
+    };
+    
+    console.log("📋 Dados coletados:", formData);
+    
+    try {
+        // SALVAR NO AIRTABLE
+        const result = await airtable.saveOrder(formData);
+        
+        if (result.success) {
+            console.log("🎯 Sucesso completo!");
+            currentOrder.airtableId = result.airtableId;
+            currentOrder.orderId = result.orderId;
+        } else {
+            console.log("⚠️ Falha ao salvar, mas continuando...");
+        }
+        
+        // CONTINUAR PARA PRÓXIMA PÁGINA
+        Object.assign(currentOrder, formData);
+        updatePaymentPage();
+        showPage('pagamento');
+        
+    } catch (error) {
+        console.error("💥 Erro geral:", error);
+        showMessage('❌ Erro inesperado: ' + error.message, 'error');
+    } finally {
+        // RESTAURAR BOTÃO
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    }
+});
+
+// =====================================================
+// FUNÇÃO PARA MOSTRAR MENSAGENS (SE NÃO EXISTIR)
+// =====================================================
+
+function showMessage(message, type) {
+    console.log(`${type === 'success' ? '✅' : '❌'} ${message}`);
+    
+    // Criar elemento visual
+    const messageDiv = document.createElement('div');
+    messageDiv.textContent = message;
+    messageDiv.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 20px;
+        border-radius: 8px;
+        z-index: 1000;
+        font-weight: bold;
+        max-width: 300px;
+        ${type === 'success' ? 
+          'background: #d4edda; color: #155724; border: 1px solid #c3e6cb;' : 
+          'background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;'
+        }
+    `;
+    
+    document.body.appendChild(messageDiv);
+    
+    // Remover após 5 segundos
+    setTimeout(() => {
+        if (messageDiv.parentNode) {
+            messageDiv.parentNode.removeChild(messageDiv);
+        }
+    }, 5000);
+}
+
+// =====================================================
+// GUIA DE CREDENCIAIS - COMO OBTER
+// =====================================================
+
+/*
+🔑 COMO OBTER SUAS CREDENCIAIS:
+
+1. BASE ID:
+   - Vá para airtable.com
+   - Entre na sua base
+   - Clique no ícone "Help" (?)
+   - Clique "API documentation"
+   - Procure: "The ID of this base is app..."
+   - Copie o ID (ex: app1234567890abcdef)
+
+2. API KEY:
+   - Já foi criado: patBVY7vEKyN1cW9O
+   - Use exatamente como está
+
+3. NOME DA TABELA:
+   - Deve ser exatamente "Orders"
+   - Verifique se a tabela tem esse nome no Airtable
+
+📋 ESTRUTURA DA TABELA NO AIRTABLE:
+- ID_Pedido (Single line text)
+- Nome_Cliente (Single line text)
+- Servico (Single select)
+- Preco (Number)
+- Contato (Single line text)
+- Metodo_Contato (Single select)
+- Situacao_Relatada (Long text)
+- Status (Single select)
+- Data_Pedido (Date)
+- Hora_Pedido (Single line text)
+
+🧪 TESTE:
+1. Abra F12 > Console no seu site
+2. Faça um cadastro
+3. Veja as mensagens que aparecem
+4. Verifique se dados apareceram no Airtable
+*/
+
+console.log("🔧 Código de debug carregado! Use F12 > Console para ver os logs.");
+
 
                 // Atualizar página de pagamento
                 updatePaymentPage();
@@ -1141,7 +1323,7 @@ const airtable = new AirtableManager();
             }
         });
 
-        // SISTEMA DE MENSAGENS
+      /*  // SISTEMA DE MENSAGENS
         function showMessage(message, type) {
             const messageDiv = document.createElement('div');
             messageDiv.className = `${type}-message`;
@@ -1173,7 +1355,7 @@ const airtable = new AirtableManager();
                 messageDiv.remove();
             }, 4000);
         }
-
+*/
         // SIMULAÇÃO DE DADOS EM TEMPO REAL
         function simulateRealTimeUpdates() {
             setInterval(() => {
